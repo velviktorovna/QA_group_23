@@ -1,0 +1,87 @@
+Linux terminal (GitBash) commands
+
+1) Посмотреть где я - pwd
+2) Создать папку - mkdir group_23
+3) Зайти в папку - cd group_23
+4) Создать 3 папки - mkdir test_1 test_2 test_3
+5) Зайти в любоую папку - cd test_1
+6) Создать 5 файлов (3 txt, 2 json) - touch 1.txt 2.txt 3.txt 4.json 5.json
+7) Создать 3 папки - mkdir txt json lessons
+8. Вывести список содержимого папки - ls -la
+9) + Открыть любой txt файл - vim 1.txt
+10) + написать туда что-нибудь, любой текст - i + текст
+11) + сохранить и выйти - Esc + :wq
+12) Выйти из папки на уровень выше - cd ..
+—
+13) переместить любые 2 файла, которые вы создали, в любую другую папку
+================ПОПРОБУЙ ПЕРЕМЕСТИТЬ ОДНОВРЕМЕННО 2 ФАЙЛА:)
+mv ./txt/{1.txt, 2.txt} ./json/
+================
+В папке test_1:
+mv 1.txt txt/1.txt 
+mv 4.json json/4.json
+
+Из папки group_23:
+pwd
+mv /c/Users/000/Desktop/Courses/group_23/test_1/2.txt /c/Users/000/Desktop/Courses/group_23/test_1/txt/2.txt
+mv ./test_1/3.txt ./test_1/txt/3.txt
+mv ./test_1/5.json ./test_1/json/5.json
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку
+================ПОПРОБУЙ СКОПИРОВАТЬ ОДНОВРЕМЕННО 2 ФАЙЛА:)
+cp ./txt/{3.txt, 4.json} ./json/
+================
+- cp 1.txt /c/Users/000/Desktop/Courses/group_23/test_2/txt
+- cp 2.txt /c/Users/000/Desktop/Courses/group_23/test_2/txt
+- cp 4.json /c/Users/000/Desktop/Courses/group_23/test_2/json
+
+15) Найти файл по имени
+find -type d -name txt
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает
+cat 1.txt | grep mkdir 
+======================НУЖНО ПОСМОТРЕТЬ ФАЙЛ В РЕАЛЬНОМ ВРЕМЕНИ, ПОДСКАЗКА: НЕ ОБЯЗАТЕЛЬНО GREP;)
+tail -f 1.txt
+======================
+17) вывести несколько первых строк из текстового файла - head -5 1.txt
+18) вывести несколько последних строк из текстового файла - tail -5 1.txt
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает 
+- less 1.txt
+q - выход
+
+20) вывести дату и время - date
+
+==================
+
+Задание *
+
+1) Отправить http запрос на сервер
+
+curl https://api.quarantine.country/api/v1/regions
+curl 'http://162.55.220.72:5005/get_method?name=Valery&age=23'
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+
+touch script.txt
+vim script.txt
+
+"#!/bin/bash
+# 3
+cd group_23
+# 4
+mkdir test_4 test_5 test_6
+# 5
+cd test_4
+# 6
+touch 1.txt 2.txt 3.txt 4.json 5.json
+# 7
+mkdir txt json lessons
+# 8
+ls -la
+# 13
+mv 1.txt ./txt/1.txt"
+
+Esc + :wq
+chmod +x ./script.txt
+./script.txt
+
